@@ -38,7 +38,7 @@ const NavMenu = styled.nav`
   }
 `
 
-const Profile = styled.article<{ imageShadow: string; profileBackgroundColor: string; profileShadow: string}>`
+const Profile = styled.article<{ imageShadow: string; profileButtonColor: string; profileShadow: string}>`
   width: 100%;
   text-align: center;
 
@@ -74,7 +74,7 @@ const Profile = styled.article<{ imageShadow: string; profileBackgroundColor: st
     margin: 0 auto 20px;
     border: none;
     border-radius: 16px;
-    background: ${p => `linear-gradient(45deg, ${p.profileBackgroundColor})`};
+    background: ${p => `linear-gradient(45deg, ${p.profileButtonColor})`};
     box-shadow: 5px 10px 20px ${p => p.profileShadow};
     font-size: 10px;
     font-weight: bold;
@@ -131,36 +131,36 @@ const ButtonToOther = styled.button<{ active: boolean; color: string; shadow: st
 const profiles = [
   {
     src: member1,
-    backgroundColor: '#ebfaff',
+    bgColor: '#ebfaff',
     imageShadow: 'rgba(173, 216, 230, 0.8)',
-    profileBackgroundColor: '#4affff, #35e0f7',
+    profileButtonColor: '#4affff, #35e0f7',
     profileShadow: 'rgba(0, 255, 255, 0.493)',
     buttonColor: '#35e0f7',
     buttonShadow: 'rgba(74, 255, 255, 0.7)',
   },
   {
     src: member2,
-    backgroundColor: '#edffeb',
+    bgColor: '#edffeb',
     imageShadow: '#bdccb783',
-    profileBackgroundColor: '#a0ff9d, #55f6b2',
+    profileButtonColor: '#a0ff9d, #55f6b2',
     profileShadow: 'rgba(33, 250, 105, 0.3)',
     buttonColor: '#55f5cd',
     buttonShadow: 'rgba(33, 250, 105, 0.3)',
   },
   {
     src: member3,
-    backgroundColor: '#fff3fd',
+    bgColor: '#fff3fd',
     imageShadow: 'rgba(252, 99, 214, 0.2)',
-    profileBackgroundColor: '#ef74ff, #ff11c4',
+    profileButtonColor: '#ef74ff, #ff11c4',
     profileShadow: 'rgba(255, 17, 196, 0.357)',
     buttonColor: '#ff80df',
     buttonShadow: 'rgba(255, 128, 223, 0.7)',
   },
   {
     src: member4,
-    backgroundColor: '#f5f0ff',
+    bgColor: '#f5f0ff',
     imageShadow: 'rgba(183, 82, 250, 0.2)',
-    profileBackgroundColor: '#8e74ff, #a011ff',
+    profileButtonColor: '#8e74ff, #a011ff',
     profileShadow: 'rgba(160, 17, 255, 0.4)',
     buttonColor: '#a794fd',
     buttonShadow: 'rgba(167, 148, 253, 0.7)',
@@ -172,7 +172,7 @@ const ProfileCard = () => {
   const currentProfile = profiles[currentIndex]
 
   return (
-    <Body bgColor={currentProfile.backgroundColor}>
+    <Body bgColor={currentProfile.bgColor}>
       <CardContainer>
         <NavMenu>
           <button>
@@ -184,7 +184,7 @@ const ProfileCard = () => {
         </NavMenu>
         <Profile
           imageShadow={currentProfile.imageShadow}
-          profileBackgroundColor={currentProfile.profileBackgroundColor}
+          profileButtonColor={currentProfile.profileButtonColor}
           profileShadow={currentProfile.profileShadow}
         >
           <img src={currentProfile.src} alt='프로필 이미지' />
@@ -205,7 +205,7 @@ const ProfileCard = () => {
         <Links>
           {profiles.map((profile, index) => (
             <ButtonToOther
-              key={profile.backgroundColor}
+              key={profile.bgColor}
               active={currentIndex === index}
               color={profile.buttonColor}
               shadow={profile.buttonShadow}
